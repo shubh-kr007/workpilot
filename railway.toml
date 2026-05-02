@@ -1,5 +1,10 @@
 [build]
 builder = "nixpacks"
+buildCommand = "npm run build"
 
 [deploy]
-startCommand = "cd backend && npm start"
+startCommand = "npm start"
+healthcheckPath = "/"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
